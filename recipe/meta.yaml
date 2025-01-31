@@ -1,4 +1,4 @@
-{% set version = "0.1.0" %}
+{% set version = "0.2.0" %}
 
 package:
   name: ragged
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/r/ragged/ragged-{{ version }}.tar.gz
-  sha256: 5c9502b7a2a21c4ebe8ec4c1452c6665bb2fcf11d414626ebec6a43426a37be0
+  sha256: 0f934e0dab2ff42b98cf38912fd1d375fe0e54c7d155866c65f62c8df096ff9e
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -21,10 +21,8 @@ requirements:
     - hatch-vcs
   run:
     - python >={{ python_min }}
-    # Not yet compatible with numpy 2
-    # https://github.com/scikit-hep/ragged/pull/60
-    - numpy >1.22.0,<2.0a0
-    - awkward 2.5
+    - numpy >=1.24.0
+    - awkward >=2.6.7
 
 test:
   imports:
@@ -34,7 +32,7 @@ test:
     - python {{ python_min }}
   commands:
     - pip check
-    # https://github.com/scikit-hep/ragged/pull/64
+    # Basic dependency check at runtime
     - python -c "import ragged; print(ragged.array([[1.]]))"
 
 about:
