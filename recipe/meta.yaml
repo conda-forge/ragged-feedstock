@@ -21,10 +21,8 @@ requirements:
     - hatch-vcs
   run:
     - python >={{ python_min }}
-    # Not yet compatible with numpy 2
-    # https://github.com/scikit-hep/ragged/pull/60
-    - numpy >1.22.0,<2.0a0
-    - awkward 2.5
+    - numpy >=1.24.0
+    - awkward >=2.6.7
 
 test:
   imports:
@@ -34,7 +32,7 @@ test:
     - python {{ python_min }}
   commands:
     - pip check
-    # https://github.com/scikit-hep/ragged/pull/64
+    # Basic dependency check at runtime
     - python -c "import ragged; print(ragged.array([[1.]]))"
 
 about:
