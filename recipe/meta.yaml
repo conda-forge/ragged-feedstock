@@ -1,4 +1,4 @@
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: ragged
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/r/ragged/ragged-{{ version }}.tar.gz
-  sha256: 0f934e0dab2ff42b98cf38912fd1d375fe0e54c7d155866c65f62c8df096ff9e
+  sha256: 73876f9048c1cabf7d58f4fbc09df6d2cfc7fda672fe5670ff9557a814753073
 
 build:
   noarch: python
